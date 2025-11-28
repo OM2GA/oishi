@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListeBoxes } from './liste-boxes';
+import { DetailBox } from './detail-box';
 
-describe('ListeBoxes', () => {
-  let component: ListeBoxes;
-  let fixture: ComponentFixture<ListeBoxes>;
+describe('DetailBox', () => {
+  let component: DetailBox;
+  let fixture: ComponentFixture<DetailBox>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ListeBoxes]
+      imports: [DetailBox]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ListeBoxes);
+    fixture = TestBed.createComponent(DetailBox);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
