@@ -1,0 +1,73 @@
+.footer-container {
+    background-color: var(--vert);
+    /* Utilisation de la variable globale #374D0D */
+    color: #FFFFFF;
+    font-family: "Lexend", sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    width: 100%;
+    max-width: 1200px;
+    /* Largeur contenue pour respecter la mise en page */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 2rem;
+    /* Espace entre les liens */
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    /* Medium comme sur le screen */
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+    opacity: 0.8;
+}
+
+.footer-separator {
+    width: 80%;
+    /* La ligne ne fait pas tout l'écran sur la maquette */
+    height: 1px;
+    background-color: #FFFFFF;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.copyright {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    /* Medium comme sur le screen */
+    text-align: center;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .footer-nav {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .footer-separator {
+        width: 90%;
+    }
+}
