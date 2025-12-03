@@ -1,23 +1,26 @@
-<footer class="footer-container">
-    <div class="footer-content">
+<footer class="footer-custom w-100 py-3 text-white">
+    <div class="container d-flex flex-column align-items-center">
 
-        <div class="footer-top">
-            <div class="footer-left">
+        <div class="row w-100 align-items-center mb-3">
+
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start mb-4 mb-md-0">
                 <img src="images/logo.svg" alt="Oishi Logo" class="logo-img">
             </div>
 
-            <nav class="footer-nav">
-                <a routerLink="/" class="footer-link">Nos Boxes</a>
-                <a routerLink="/statistiques" class="footer-link">Statistiques</a>
-                <a routerLink="/mentions-legales" class="footer-link">Mentions Légales</a>
-            </nav>
+            <div class="col-12 col-md-4">
+                <nav class="nav flex-column align-items-center gap-2">
+                    <a routerLink="/" class="nav-link p-0 text-white fw-medium">Nos Boxes</a>
+                    <a routerLink="/statistiques" class="nav-link p-0 text-white fw-medium">Statistiques</a>
+                    <a routerLink="/mentions-legales" class="nav-link p-0 text-white fw-medium">Mentions Légales</a>
+                </nav>
+            </div>
 
-            <div class="footer-right"></div>
+            <div class="col-md-4 d-none d-md-block"></div>
         </div>
 
-        <div class="footer-separator"></div>
+        <hr class="w-100 border-white opacity-75 mb-3">
 
-        <p class="copyright">© Tous droit réserver, OISHI 2025</p>
+        <p class="m-0 text-center fw-medium copyright">© Tous droit réserver, OISHI 2025</p>
 
     </div>
 </footer>
