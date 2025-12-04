@@ -1,22 +1,41 @@
-<nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <a routerLink="/" class="navbar-brand" href="#">
-            <img src="images/logosanstexte.svg" alt="Logo" width="50" class="d-inline-block align-text-top">
-        </a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a routerLink="/liste-box" class="nav-link active text-light fw-medium" aria-current="page" href="#">Nos boxes</a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/statistiques" class="nav-link active text-light fw-medium" aria-current="page" href="#">Statistiques</a>
-                </li>
-            </ul>
-            <span class="text-light">
-                <a routerLink="/inscription" class="nav-link active d-flex flex-column align-items-center justify-content-center" href="#">
-                    <img src="images/compte.svg" alt="compte" width="80">
-                </a>
-            </span>
-        </div>
+
+<header class="main-header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg main-nav px-0">
+
+            <a class="navbar-brand" routerLink="/liste-box">
+                <img src="images/logosanstexte.svg" alt="Logo Oishi">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu"
+                aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="ph ph-list" style="font-size:32px; color:white;"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainMenu">
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="menu-item"><a class="nav-link"  routerLink="/liste-box">Nos boxes</a></li>
+                    <li class="menu-item"><a class="nav-link"  routerLink="/statistiques">Statistiques</a></li>
+                </ul>
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle account-link d-flex align-items-center"
+                        href="#" id="accountDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="ph-user me-2"></i>
+                            <span class="account-text mt-1">Mon compte</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                            <li><a class="dropdown-item" href="#historique">Historique de commande</a></li>
+                            <li><a class="dropdown-item" href="#parametres">Paramètres</a></li>
+                            <li><a class="dropdown-item" routerLink="/inscription">Déconnexion</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
-</nav>
+</header>
