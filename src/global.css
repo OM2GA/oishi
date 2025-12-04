@@ -1,6 +1,13 @@
-:root{
-    --vert :#374D0D;
-    --rouge:#E72727;
-    --darkvert:#303328;
-    --backgrounfd-color:#FFF9EF;
+:root {
+    /* Couleurs Principales */
+    --blanc: #ffffff;
+    --vert: #374D0D;
+    --rouge: #E72727;
+    --darkvert: #303328;
+    --background-color: #FFF9EF;
+
+    /* Formulaires */
+    --border-color: #d0d0d0;
+    --text-muted: #666666;
+    --placeholder: #999999;
 }
