@@ -1,1 +1,55 @@
-<p>inscription works!</p>
+<div class="inscription-container">
+    <div class="left-panel">
+        <div class="left-content">
+            <img src="images/logo.svg" alt="Oishi Logo" class="logo">
+            <p class="login-title">Vous avez déjà un compte ?</p>
+            <a routerLink="/connexion" class="btn btn-login">Se connecter</a>
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <div class="form-container">
+            <h1 class="form-title">Créer un compte</h1>
+
+            <form (ngSubmit)="onSubmit()" #inscriptionForm="ngForm">
+                <div class="mb-4">
+                    <label for="nom" class="form-label">Nom <span class="required">*</span></label>
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom"
+                        [(ngModel)]="formData.nom" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="prenom" class="form-label">Prénom <span class="required">*</span></label>
+                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom"
+                        [(ngModel)]="formData.prenom" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="email" class="form-label">Email <span class="required">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Adresse email"
+                        [(ngModel)]="formData.email" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="password" class="form-label">Mot de passe <span class="required">*</span></label>
+                    <div class="password-wrapper">
+                        <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password"
+                            name="password" placeholder="Mot de passe" [(ngModel)]="formData.password" required>
+                        <button type="button" class="toggle-password" (click)="togglePassword()">
+                            <i class="ph" [class.ph-eye]="!showPassword" [class.ph-eye-slash]="showPassword"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="confirmPassword" class="form-label">Confirmation de mot de passe <span
+                            class="required">*</span></label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                        placeholder="Confirmer le mot de passe" [(ngModel)]="formData.confirmPassword" required>
+                </div>
+
+                <button type="submit" class="btn btn-submit">S'INSCRIRE</button>
+            </form>
+        </div>
+    </div>
+</div>
