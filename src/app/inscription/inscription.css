@@ -28,14 +28,14 @@
 }
 
 .login-title {
-    color: #ffffff;
+    color: var(--blanc);
     font-size: 1.75rem;
     margin-bottom: 2rem;
     font-weight: 400;
 }
 
 .btn-login {
-    background-color: #ffffff;
+    background-color: var(--blanc);
     color: var(--darkvert);
     border: 4px solid var(--darkvert);
     padding: 0.8rem 3.5rem;
@@ -69,7 +69,7 @@
 .form-title {
     font-size: 2rem;
     font-weight: 700;
-    color: #333333;
+    color: var(--darkvert);
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -77,13 +77,13 @@
 /* Labels */
 .form-label {
     font-size: 0.9rem;
-    color: #666666;
+    color: var(--text-muted);
     margin-bottom: 0.5rem;
     display: block;
 }
 
 .required {
-    color: #e42d2d;
+    color: var(--rouge);
 }
 
 /* Inputs */
@@ -91,20 +91,20 @@
     width: 100%;
     padding: 0.875rem 1rem;
     font-size: 1rem;
-    border: 1px solid #d0d0d0;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
-    background-color: #ffffff;
+    background-color: var(--blanc);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-control::placeholder {
-    color: #999999;
+    color: var(--placeholder);
 }
 
 .form-control:focus {
     outline: none;
-    border-color: #e42d2d;
-    box-shadow: 0 0 0 3px rgba(228, 45, 45, 0.1);
+    border-color: var(--rouge);
+    box-shadow: 0 0 0 3px rgba(231, 39, 39, 0.1);
 }
 
 /* Password wrapper */
@@ -124,7 +124,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: #666666;
+    color: var(--text-muted);
     padding: 0;
     display: flex;
     align-items: center;
@@ -132,7 +132,7 @@
 }
 
 .toggle-password:hover {
-    color: #333333;
+    color: var(--darkvert);
 }
 
 .toggle-password i {
@@ -146,8 +146,8 @@
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    color: #ffffff;
-    background-color: #333333;
+    color: var(--blanc);
+    background-color: var(--darkvert);
     border: none;
     border-radius: 8px;
     cursor: pointer;
