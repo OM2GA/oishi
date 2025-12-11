@@ -1,1 +1,40 @@
-<p>connexion works!</p>
+<div class="connexion-container">
+    <div class="left-panel">
+        <div class="form-container">
+            <h1 class="form-title">Se connecter</h1>
+
+            <form (ngSubmit)="onSubmit()" #connexionForm="ngForm">
+                <div class="mb-4">
+                    <label for="email" class="form-label">Email <span class="required">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Adresse email"
+                        [(ngModel)]="formData.email" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="password" class="form-label">Mot de passe <span class="required">*</span></label>
+                    <div class="password-wrapper">
+                        <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password"
+                            name="password" placeholder="Mot de passe" [(ngModel)]="formData.password" required>
+                        <button type="button" class="toggle-password" (click)="togglePassword()">
+                            <i class="ph" [class.ph-eye]="!showPassword" [class.ph-eye-slash]="showPassword"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-submit">SE CONNECTER</button>
+
+                <div class="forgot-password">
+                    <a href="#">Mot de passe oublié ?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <div class="right-content">
+            <img src="images/logo.svg" alt="Oishi Logo" class="logo">
+            <p class="signup-title">Vous n’avez pas de compte ?</p>
+            <a routerLink="/inscription" class="btn btn-signup">S’inscrire</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,220 @@
+.connexion-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--background-color);
+}
+
+/* Panneau gauche (Formulaire) */
+.left-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--darkvert);
+    /* Matched to inscription */
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Labels */
+.form-label {
+    font-size: 0.9rem;
+    font-family: "Lexend", sans-serif;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.required {
+    color: var(--rouge);
+}
+
+/* Inputs */
+.form-control {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--blanc);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control::placeholder {
+    color: var(--placeholder);
+    font-family: "Lexend", sans-serif;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--rouge);
+    box-shadow: 0 0 0 3px rgba(231, 39, 39, 0.1);
+}
+
+/* Password wrapper */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper .form-control {
+    padding-right: 3rem;
+    width: 100%;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-password:hover {
+    color: var(--darkvert);
+}
+
+.toggle-password i {
+    font-size: 1.25rem;
+}
+
+/* Bouton submit */
+.btn-submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--blanc);
+    background-color: var(--darkvert);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.forgot-password a {
+    color: #4a6ee0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Panneau droit (Branding) */
+.right-panel {
+    flex: 1;
+    background-color: var(--vert);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    /* Mirroring inscription poly: 0 0, 100 0, 80 100, 0 100. 
+        We want the cut on the left side. 
+        Top-Left indented: 20% 0. Top-Right 100% 0. Bottom-Right 100% 100%. Bottom-Left 0% 100%.
+     */
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.right-content {
+    text-align: center;
+    color: var(--blanc);
+}
+
+.logo {
+    width: 80%;
+    max-width: 380px;
+    min-width: 200px;
+    height: auto;
+    margin-bottom: 3rem;
+    transform: scale(1.5);
+}
+
+.signup-title {
+    color: var(--blanc);
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.btn-signup {
+    background-color: var(--blanc);
+    color: var(--darkvert);
+    border: 4px solid var(--darkvert);
+    /* Matched to btn-login */
+    padding: 0.8rem 3.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    /* Important for anchor tags */
+    display: inline-block;
+}
+
+.btn-signup:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+/* Spacing */
+.mb-4 {
+    margin-bottom: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .connexion-container {
+        flex-direction: column-reverse;
+        /* Keep form on bottom or change to column to match inscription if desired? Inscription is column, form on right -> bottom? */
+    }
+
+    .right-panel {
+        clip-path: none;
+        padding: 3rem 1rem;
+        min-height: auto;
+    }
+
+    .left-panel {
+        padding: 2rem 1rem;
+    }
+
+    .logo {
+        width: 60%;
+        max-width: 250px;
+    }
+}
