@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-inscription',
@@ -9,6 +12,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './inscription.css',
 })
 export class Inscription {
+  constructor(private router: Router) {}
+
   formData = {
     nom: '',
     prenom: '',
@@ -28,8 +33,7 @@ export class Inscription {
       alert('Les mots de passe ne correspondent pas');
       return;
     }
-
     console.log('Données du formulaire:', this.formData);
-    // Ici vous pouvez ajouter la logique d'inscription (appel API, etc.)
+    this.router.navigate(['/liste-box']);
   }
 }

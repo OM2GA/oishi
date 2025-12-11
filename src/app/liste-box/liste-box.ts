@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Data } from '../data';
+import { Footer} from '../footer/footer';
+import { Header } from '../header/header';
 
 @Component({
   selector: 'app-liste-box',
-  imports: [CommonModule],
+  imports: [CommonModule,Footer,Header],
   templateUrl: './liste-box.html',
   styleUrl: './liste-box.css',
 })
