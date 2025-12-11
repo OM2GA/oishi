@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Data } from '../data';
 import { Footer} from '../footer/footer';
 import { Header } from '../header/header';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-liste-box',
-  imports: [CommonModule,Footer,Header],
+  imports: [CommonModule,Footer,Header,RouterModule],
   templateUrl: './liste-box.html',
   styleUrl: './liste-box.css',
 })
