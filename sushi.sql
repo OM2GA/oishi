@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 18 déc. 2025 à 17:14
+-- Généré le : jeu. 18 déc. 2025 à 19:20
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -256,6 +256,13 @@ CREATE TABLE `client` (
   `token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `client`
+--
+
+INSERT INTO `client` (`id_client`, `prenom`, `nom`, `email`, `password`, `telephone`, `adresse`, `token`) VALUES
+(1, '', 'admin', 'admin@admin.com', '$2y$10$ky.Ayb2N.DhxbHuumvgCQOjiKHkyIB8dBZhry9pQNwIOTHS6P6GZi', '', '', '3140d262ad459719004c0c74675b241acd7d5d537e6221b763f352557a72bae8');
+
 -- --------------------------------------------------------
 
 --
@@ -385,7 +392,7 @@ ALTER TABLE `box`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `commande`
