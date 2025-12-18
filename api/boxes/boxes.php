@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+require "../db.php";
 
 try {
     // recupere tout la table box

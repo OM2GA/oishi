@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 04 déc. 2025 à 23:02
+-- Généré le : jeu. 18 déc. 2025 à 17:14
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -252,7 +252,8 @@ CREATE TABLE `client` (
   `email` varchar(150) NOT NULL,
   `password` varchar(255) NOT NULL,
   `telephone` varchar(20) NOT NULL,
-  `adresse` varchar(255) NOT NULL
+  `adresse` varchar(255) NOT NULL,
+  `token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

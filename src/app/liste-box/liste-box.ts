@@ -14,10 +14,15 @@ import { Observable } from 'rxjs';
 })
 export class ListeBox implements OnInit {
   boxes$: Observable<any> | undefined;
+  nom_utilisateur: string | null = '';
 
   constructor(private data: Data) { }
 
   ngOnInit(): void {
     this.boxes$ = this.data.getBoxesAPI();
+    //regler erreur localStorage
+    if (typeof window !== 'undefined') {
+      this.nom_utilisateur = localStorage.getItem('user_nom');
+    }
   }
 }

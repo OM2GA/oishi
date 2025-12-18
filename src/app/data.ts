@@ -9,10 +9,17 @@ export class Data {
   constructor(private http: HttpClient) { }
 
   getBoxesAPI() {
-    return this.http.get(this.API_URL + "boxes.php");
+    return this.http.get(this.API_URL + "boxes/boxes.php");
   }
-  
+
   getBoxById(id: number) {
-    return this.http.get(this.API_URL + "get_boxid.php?id=" + id);
+    return this.http.get(this.API_URL + "boxes/get_boxid.php?id=" + id);
+  }
+  login(data: any) {
+    return this.http.post(this.API_URL + 'users/login.php', data);
+  }
+
+  register(data: any) {
+    return this.http.post(this.API_URL + 'users/register.php', data);
   }
 }

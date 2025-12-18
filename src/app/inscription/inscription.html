@@ -48,6 +48,12 @@
                         placeholder="Confirmer le mot de passe" [(ngModel)]="formData.confirmPassword" required>
                 </div>
 
+                @if (message) {
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                }
+
                 <button type="submit" class="btn btn-submit">Créer mon compte</button>
             </form>
         </div>

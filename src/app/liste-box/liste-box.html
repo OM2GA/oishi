@@ -1,5 +1,14 @@
 <app-header></app-header>
 <div class="main">
+  @if (nom_utilisateur) {
+    <h2>
+      Bienvenue {{ nom_utilisateur }}
+    </h2>
+  } @else {
+    <h2>
+      Bienvenue 
+    </h2>
+  }
   @for (box of (boxes$ | async); track box.id) {
   <div class="card m-2 p-2">
     <p>ID : {{box.id}}</p>

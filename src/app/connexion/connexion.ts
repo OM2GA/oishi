@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { Data } from '../data';
 
 @Component({
   selector: 'app-connexion',
@@ -13,7 +14,7 @@ export class Connexion {
     email: '',
     password: ''
   };
-
+  constructor(private data: Data,private router: Router) {}
   showPassword = false;
 
   togglePassword(): void {
@@ -21,7 +22,26 @@ export class Connexion {
   }
 
   onSubmit(): void {
-    console.log('Données de connexion:', this.formData);
-    // Ici vous pouvez ajouter la logique de connexion (appel API, etc.)
-  }
+  this.data.login({
+    email: this.formData.email,
+    password: this.formData.password
+  }).subscribe({
+    next: (res: any) => {
+      if (res.error) {
+        alert(res.error);
+        return;
+      }
+      console.log('Connexion réussie', res);
+      localStorage.setItem('user_nom', res.nom);
+      this.router.navigate(['/liste-box']);
+    },
+    error: (err) => {
+      if (err.error?.error) {
+        alert(err.error.error);
+      } else {
+        alert('Erreur serveur');
+      }
+    }
+  });
+}
 }

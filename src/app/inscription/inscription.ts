@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { Data } from '../data';
 
 
 
@@ -12,7 +13,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './inscription.css',
 })
 export class Inscription {
-  constructor(private router: Router) {}
+  constructor(private data: Data,private router: Router) {}
 
   formData = {
     nom: '',
@@ -21,19 +22,44 @@ export class Inscription {
     password: '',
     confirmPassword: ''
   };
-
+  message = '';
   showPassword = false;
-
   togglePassword(): void {
     this.showPassword = !this.showPassword;
   }
 
   onSubmit(): void {
-    if (this.formData.password !== this.formData.confirmPassword) {
-      alert('Les mots de passe ne correspondent pas');
+
+    // detecter si les champ sont vides
+    if (
+      !this.formData.nom ||
+      !this.formData.email ||
+      !this.formData.password ||
+      !this.formData.confirmPassword
+    ) {
+      this.message = "Veuillez remplir tous les champs";
       return;
     }
-    console.log('Données du formulaire:', this.formData);
-    this.router.navigate(['/liste-box']);
+
+    this.message = '';
+    if (this.formData.password !== this.formData.confirmPassword) {
+      this.message = "Les mots de passe ne correspondent pas";
+      return;
+    }
+
+    this.data.register({
+      nom: this.formData.nom,
+      email: this.formData.email,
+      password: this.formData.password
+    }).subscribe({
+      next: (res) => {
+        console.log("Inscription réussie", res);
+
+        this.router.navigate(['/liste-box']);
+      },
+      error: () => {
+        this.message = "Erreur inconnue";
+      }
+    });
   }
 }
