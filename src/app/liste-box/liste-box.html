@@ -1,23 +1,20 @@
 <app-header></app-header>
 <div class="main">
-  @for (box of boxes; track box.id) {
-    <div class="card m-2 p-2">
-      <p>ID : {{box.id}}</p>
-      <p>Name : {{box.nom}}</p>
-      <p>Prix : {{box.prix}}</p>
-      <p>aliment : </p>
-        <ul>
-            @for (aliment of box.aliments; track aliment.nom) {
-            <li>
-                {{ aliment.nom }} — {{ aliment.quantite }}
-            </li>
-            }
-        </ul>
-        <button class="btn btn-cart"><span><i class="ph ph-shopping-cart-simple"></i></span></button>
-    </div>
+  @for (box of (boxes$ | async); track box.id) {
+  <div class="card m-2 p-2">
+    <p>ID : {{box.id}}</p>
+    <p>Name : {{box.nom}}</p>
+    <p>Prix : {{box.prix}}</p>
+    <p>aliment : </p>
+    <ul>
+      @for (aliment of box.aliments; track aliment.nom) {
+      <li>
+        {{ aliment.nom }} — {{ aliment.quantite }}
+      </li>
+      }
+    </ul>
+    <button class="btn btn-cart"><span><i class="ph ph-shopping-cart-simple"></i></span></button>
+  </div>
   }
 </div>
 <app-footer></app-footer>
-
-
-
