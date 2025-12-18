@@ -11,5 +11,8 @@ export class Data {
   getBoxesAPI() {
     return this.http.get(this.API_URL + "boxes.php");
   }
-
+  
+  getBoxById(id: number) {
+    return this.http.get(this.API_URL + "get_boxid.php?id=" + id);
+  }
 }
