@@ -12,6 +12,7 @@ export class Header {
   logout(): void {
     if (typeof window !== 'undefined') {
       localStorage.removeItem('user_nom');
+      console.log('Déconnexion réussie');
     }
 
     this.router.navigate(['/connexion']);

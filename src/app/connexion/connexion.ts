@@ -33,6 +33,7 @@ export class Connexion {
       }
       console.log('Connexion réussie', res);
       localStorage.setItem('user_nom', res.nom);
+      localStorage.setItem('user_id', res.id);
       this.router.navigate(['/liste-box']);
     },
     error: (err) => {

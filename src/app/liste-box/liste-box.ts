@@ -25,4 +25,15 @@ export class ListeBox implements OnInit {
       this.nom_utilisateur = localStorage.getItem('user_nom');
     }
   }
+
+  addPanier(idBox: number): void {
+    this.data.addToPanier(idBox).subscribe((res: any) => {
+
+      if (res.id_commande && typeof window !== 'undefined') {
+        localStorage.setItem('id_commande', res.id_commande);
+      }
+
+      console.log('Ajout de la box réussie');
+    });
+  }
 }

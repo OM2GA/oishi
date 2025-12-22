@@ -22,4 +22,19 @@ export class Data {
   register(data: any) {
     return this.http.post(this.API_URL + 'users/register.php', data);
   }
+  /* Panier*/
+  addToPanier(idBox:number){
+    const idClient = localStorage.getItem('user_id');
+    const idCommande = localStorage.getItem('id_commande');
+
+    const data: any = {
+      id_client: idClient,
+      id_box: idBox
+    };
+    //tester si la commande existe deja
+    if (idCommande) {
+      data.id_commande = idCommande;
+    }
+    return this.http.post(this.API_URL + 'panier/add_panier.php',data);
+  }
 }
