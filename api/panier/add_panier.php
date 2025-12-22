@@ -34,7 +34,7 @@ $stmt = $pdo->prepare("
 $stmt->execute([$id_commande, $id_box]);
 
 if ($stmt->fetch()) {
-    // Déjà présente → +1
+    // modifier la quantité de la box si elle est déjà dans la commande
     $stmt = $pdo->prepare("
         UPDATE ligne_commande
         SET quantite = quantite + 1
@@ -42,7 +42,7 @@ if ($stmt->fetch()) {
     ");
     $stmt->execute([$id_commande, $id_box]);
 } else {
-    // Nouvelle box
+    // pour une nouvelle box
     $stmt = $pdo->prepare("
         INSERT INTO ligne_commande (id_commande, id_box, quantite)
         VALUES (?, ?, 1)

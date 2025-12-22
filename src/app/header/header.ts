@@ -12,6 +12,8 @@ export class Header {
   logout(): void {
     if (typeof window !== 'undefined') {
       localStorage.removeItem('user_nom');
+      localStorage.removeItem('user_id');
+      localStorage.removeItem('id_commande');
       console.log('Déconnexion réussie');
     }
 

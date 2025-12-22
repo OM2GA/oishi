@@ -11,7 +11,7 @@ if (!isset($_GET["id_client"])) {
 
 $id_client = (int)$_GET["id_client"];
 
-/*Récupérer la dernière commande du client(le panier actuel)*/
+/*Récupérer la commande actuel du client */
 $stmt = $pdo->prepare("
     SELECT id_commande
     FROM commande
@@ -32,12 +32,10 @@ if (!$commande) {
 
 $id_commande = $commande["id_commande"];
 
-/*
-  2️⃣ Récupérer les boxes du panier
-*/
+/*récupérer les boxes du panier */
 $stmt = $pdo->prepare("
     SELECT 
-        box.id_box AS id,
+        box.id_box,
         box.nom,
         box.prix,
         ligne_commande.quantite
@@ -48,9 +46,8 @@ $stmt = $pdo->prepare("
 $stmt->execute([$id_commande]);
 $panier = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-/*
-  3️⃣ Calcul du total
-*/
+/*calcule total du panier*/
+
 $total = 0;
 foreach ($panier as $item) {
     $total += $item["prix"] * $item["quantite"];
