@@ -15,18 +15,18 @@ export class Data {
   getBoxById(id: number) {
     return this.http.get(this.API_URL + "boxes/get_boxid.php?id=" + id);
   }
+
   login(data: any) {
-    return this.http.post(this.API_URL + 'users/login.php', data);
+    return this.http.post(this.API_URL + "users/login.php", data);
   }
 
   register(data: any) {
-    return this.http.post(this.API_URL + 'users/register.php', data);
+    return this.http.post(this.API_URL + "users/register.php", data);
   }
   /* Panier*/
   addToPanier(idBox:number){
     const idClient = localStorage.getItem('user_id');
     const idCommande = localStorage.getItem('id_commande');
-
     const data: any = {
       id_client: idClient,
       id_box: idBox
@@ -35,6 +35,11 @@ export class Data {
     if (idCommande) {
       data.id_commande = idCommande;
     }
-    return this.http.post(this.API_URL + 'panier/add_panier.php',data);
+    return this.http.post(this.API_URL + "panier/add_panier.php",data);
   }
+
+  getPanier() {
+    const IDclient = localStorage.getItem('user_id');
+    return this.http.get(this.API_URL + "panier/get_panier.php?id_client=" + IDclient);
+ }
 }

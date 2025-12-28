@@ -5,9 +5,14 @@
     --rouge: #E72727;
     --darkvert: #303328;
     --background-color: #FFF9EF;
+    --card:#1C1C1C;
 
     /* Formulaires */
     --border-color: #d0d0d0;
     --text-muted: #666666;
     --placeholder: #999999;
+}
+
+.main{
+    margin-top: 110px;
 }

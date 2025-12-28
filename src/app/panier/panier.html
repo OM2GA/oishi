@@ -1,1 +1,26 @@
-<p>panier works!</p>
+<app-header></app-header>
+
+<div class="main">
+  <h2>Mon panier</h2>
+    @if (panier$ | async ; as data) {
+    @if (data.panier.length > 0) {
+        @for (item of data.panier; track item.id_box) {
+        <div class="card m-2 p-2">
+            <p><strong>Nom :</strong> {{ item.nom }}</p>
+            <p><strong>Quantité :</strong> {{ item.quantite }}</p>
+            <p><strong>Prix :</strong> {{ item.prix * item.quantite }} €</p>
+        </div>
+        }
+        <div class="card m-2 p-2">
+        <h3>Total : 48 €</h3>
+        <button class="btn btn-success">Payer</button>
+        </div>
+    } @else {
+        <p>Votre panier est vide.</p>
+    }
+    } @else {
+    <p>Chargement du panier...</p>
+    }
+</div>
+
+<app-footer></app-footer>

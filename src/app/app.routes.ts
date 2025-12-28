@@ -4,6 +4,7 @@ import { Statistiques } from './statistiques/statistiques';
 import { ListeBox } from './liste-box/liste-box';
 
 import { Connexion } from './connexion/connexion';
+import { Panier } from './panier/panier';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/connexion', pathMatch: 'full' },
@@ -11,4 +12,5 @@ export const routes: Routes = [
     { path: 'connexion', component: Connexion },
     { path: 'statistiques', component: Statistiques },
     { path: 'liste-box', component: ListeBox },
+    { path: 'panier', component: Panier },
 ];
