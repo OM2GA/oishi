@@ -9,10 +9,13 @@
             <p><strong>Nom :</strong> {{ item.nom }}</p>
             <p><strong>Quantité :</strong> {{ item.quantite }}</p>
             <p><strong>Prix :</strong> {{ item.prix * item.quantite }} €</p>
+            <button class="btn btn-cart-custom" (click)="supprimer(item.id_box)">
+                  <i class="ph ph-trash"></i>
+            </button>
         </div>
         }
         <div class="card m-2 p-2">
-        <h3>Total : 48 €</h3>
+        <h3>Total : {{data.total}}</h3>
         <button class="btn btn-success">Payer</button>
         </div>
     } @else {
