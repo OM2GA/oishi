@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { Header } from '../header/header';
+import { Footer } from '../footer/footer';
 
 @Component({
   selector: 'app-rgpd',
-  imports: [],
+  standalone: true,
+  imports: [Header, Footer],
   templateUrl: './rgpd.html',
-  styleUrl: './rgpd.css',
+  styleUrl: './rgpd.css'
 })
-export class Rgpd {
-
-}
+export class Rgpd { }

@@ -1,20 +1,19 @@
-
 .main-container {
   background-color: var(--background-color);
   min-height: 100vh;
   font-family: 'Lexend', sans-serif;
 }
 
-.username::first-letter{
+.username::first-letter {
   text-transform: uppercase;
 }
 
 .sushi-card {
-  background-color: var(--card); 
+  background-color: var(--card);
   border: none;
-  border-radius: 20px; 
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   color: white;
 }
 
@@ -35,18 +34,20 @@
 
 
 .section-titre {
-  color: #a0a0a0; /* Gris clair */
+  color: #a0a0a0;
+  /* Gris clair */
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 10px;
   font-weight: 600;
 }
+
 /**
 /* Badges Saveurs */
 .badge-flavor {
-  background-color: #384B20; 
-  color: white; 
+  background-color: #384B20;
+  color: white;
   border-radius: 4px;
   padding: 8px 16px;
   font-size: 0.85rem;
@@ -95,29 +96,22 @@
   color: #111111;
   width: 50px;
   height: 50px;
-  border-radius: 50%; 
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.5s;
 }
 
-.btn-cart-custom:hover{
-    background-color: var(--rouge);
+.btn-cart-custom:hover {
+  background-color: var(--rouge);
 }
 
-button i{
-    font-size: 1.8rem;
-    color: #111111;
+button i {
+  font-size: 1.8rem;
+  color: #111111;
 }
 
-.btn-cart-custom:hover i{
-    color: white;
+.btn-cart-custom:hover i {
+  color: white;
 }
-
-
-
-
-
-
-
