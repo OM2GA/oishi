@@ -33,21 +33,11 @@ if (!$commande) {
 $id_commande = $commande["id_commande"];
 
 /*récupérer les boxes du panier */
-$stmt = $pdo->prepare("
-    SELECT 
-        box.id_box,
-        box.nom,
-        box.prix,
-        ligne_commande.quantite
-    FROM ligne_commande
-    JOIN box ON box.id_box = ligne_commande.id_box
-    WHERE ligne_commande.id_commande = ?
-");
+$stmt = $pdo->prepare("SELECT box.id_box, box.nom, box.prix, ligne_commande.quantite FROM ligne_commande JOIN box ON box.id_box = ligne_commande.id_box WHERE ligne_commande.id_commande = ? ");
 $stmt->execute([$id_commande]);
 $panier = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-/*calcule total du panier*/
-
+/*calcule prix total du panier*/
 $total = 0;
 foreach ($panier as $item) {
     $total += $item["prix"] * $item["quantite"];

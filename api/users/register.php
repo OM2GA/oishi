@@ -23,10 +23,7 @@ try {
 
     $password = password_hash($data["password"], PASSWORD_DEFAULT);
 
-    $stmt = $pdo->prepare("
-        INSERT INTO client (nom, email, password)
-        VALUES (?, ?, ?)
-    ");
+    $stmt = $pdo->prepare("INSERT INTO client (nom, email, password) VALUES (?, ?, ?) ");
     $stmt->execute([
         $data["nom"],
         $data["email"],

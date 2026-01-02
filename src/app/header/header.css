@@ -1,6 +1,4 @@
-/* =========================
-   LIENS DU MENU PRINCIPAL
-   ========================= */
+
 
 #mainMenu .nav-link {
   font-size: 20px;
@@ -10,7 +8,7 @@
   position: relative;
 }
 
-/* soulignement au survol / actif */
+
 #mainMenu .nav-link::before {
   position: absolute;
   content: "";
@@ -30,43 +28,40 @@
   transform-origin: left center;
 }
 
-/* couleur du soulignement en sticky */
+
 .main-header.fixed-nav #mainMenu .nav-link::before {
   background: #000;
 }
 
-/* =========================
-   HEADER / NAVBAR
-   ========================= */
 
 .main-header {
   position: fixed;
   z-index: 99;
   width: 100%;
   transition: all 0.4s ease;
-  background: var(--vert) !important; /* fond vert */
-  box-shadow: none !important;        /* pas de barre de séparation */
+  background: var(--vert) !important; 
+  box-shadow: none !important;        
 }
 
 .main-header.fixed-nav {
   top: 0;
-  background: #1fa447 !important;     /* fond vert en sticky */
+  background: #1fa447 !important;     
   transition: all 0.4s ease;
   box-shadow: none !important;
 }
 
-/* LOGO */
+
 
 .navbar-brand {
   color: #fff;
 }
 
 .main-header .navbar-brand img {
-  width: 95px; /* logo agrandi */
+  width: 95px; 
   height: auto;
 }
 
-/* permutation des logos si tu en as deux */
+
 .main-header.fixed-nav .navbar-brand > img:last-of-type {
   display: block;
 }
@@ -75,25 +70,20 @@
   display: none;
 }
 
-/* alignement des menus */
+
 
 .navbar-nav.ml-auto {
-  margin-left: auto !important; /* "Mon compte" à droite */
+  margin-left: auto !important; 
 }
 
 .navbar-nav.mr-auto {
-  margin-left: 30px;            /* léger décalage du menu de gauche */
+  margin-left: 30px;            
 }
 
 .menu-item {
-  margin-right: 35px; /* espace entre les onglets */
+  margin-right: 35px; 
 }
 
-/* =========================
-   DROPDOWN "MON COMPTE"
-   ========================= */
-
-/* lien "Mon compte" avec icône à gauche */
 .account-link {
   display: flex;
   align-items: center;
@@ -106,14 +96,14 @@
   font-size: 24px;
 }
 
-/* style général du menu déroulant */
+
 .dropdown-menu {
   background-color: var(--darkvert); 
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.3);
 }
 
-/* items du dropdown */
+
 .dropdown-item {
   color: #fff;
   text-decoration: none !important;
@@ -123,20 +113,17 @@
   font-family: "Lexend", sans-serif;
 }
 
-/* hover sur les items */
+
 .dropdown-item:hover {
   background-color: rgba(255, 255, 255, 0.25);
   color: #fff;
 }
 
-/* pas de pseudo-effet de soulignement ici */
 .dropdown-menu .dropdown-item::before {
   display: none !important;
 }
 
-/* =========================
-   MOBILE
-   ========================= */
+
 
 @media (max-width: 991px) {
 

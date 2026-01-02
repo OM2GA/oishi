@@ -2,10 +2,9 @@ import { Routes } from '@angular/router';
 import { Inscription } from './inscription/inscription';
 import { Statistiques } from './statistiques/statistiques';
 import { ListeBox } from './liste-box/liste-box';
-
+import { HistoriqueCommandes } from './historique-commandes/historique-commandes';
 import { Connexion } from './connexion/connexion';
 import { Panier } from './panier/panier';
-
 import { Rgpd } from './rgpd/rgpd';
 
 export const routes: Routes = [
@@ -16,4 +15,6 @@ export const routes: Routes = [
     { path: 'liste-box', component: ListeBox },
     { path: 'panier', component: Panier },
     { path: 'rgpd', component: Rgpd },
+    { path: 'historique-commandes', component: HistoriqueCommandes },
+
 ];

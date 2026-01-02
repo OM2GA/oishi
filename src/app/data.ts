@@ -43,8 +43,16 @@ export class Data {
     return this.http.get(this.API_URL + "panier/get_panier.php?id_client=" + IDclient);
   }
 
- deleteFromCart(idBox: number) {
-    const idCommande = localStorage.getItem('id_commande');
-    return this.http.delete(this.API_URL + "panier/delete_panier.php?id_box=" + idBox + "&id_commande=" + idCommande);
- }
+  deleteFromCart(idBox: number) {
+      const idCommande = localStorage.getItem('id_commande');
+      return this.http.delete(this.API_URL + "panier/delete_panier.php?id_box=" + idBox + "id_commande=" + idCommande);
+  }
+
+  getHistorique() {
+    const idClient = localStorage.getItem('user_id');
+    return this.http.get(this.API_URL + "commandes/get_historique.php?id_client=" + idClient);
+  }
+  getStatsCommandesParBox() {
+    return this.http.get<any[]>(this.API_URL + "stats/commandes_par_box.php");
+  }
 }

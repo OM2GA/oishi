@@ -1,1 +1,36 @@
-<p>historique-commandes works!</p>
+<app-header></app-header>
+<div class="main container p-4">
+  <h2 class="mb-4">Mon historique de commandes</h2>
+
+  @if (historique$ | async; as data) {
+    @if (data.commandes.length > 0) {
+      @for (com of data.commandes; track com.id_commande) {
+        <div class="card mb-3 shadow-sm border-0">
+          <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <span><strong>Commande du {{ com.date_commande }}</strong></span>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              @for (box of com.boxes; track box.nom) {
+                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                  <div>
+                    <span class="fw-bold">{{ box.nom }}</span>
+                    <small class="text-muted d-block">Quantité : {{ box.quantite }}</small>
+                  </div>
+                  <span class="badge bg-light text-dark border">{{ box.prix }} €</span>
+                </li>
+              }
+            </ul>
+          </div>
+
+          <div class="card-footer bg-light d-flex justify-content-end">
+            <h5 class="mb-0 text-success">Total : {{ com.total }} €</h5>
+          </div>
+        </div>
+      }
+    } @else {
+      <div class="alert alert-info">Vous n'avez pas encore passé de commande.</div>
+    }
+}
+</div>
+<app-footer></app-footer>

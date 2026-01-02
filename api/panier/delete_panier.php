@@ -12,7 +12,6 @@ if (!$id_box || !$id_commande) {
     exit;
 }
 
-
 $stmt = $pdo->prepare("DELETE FROM ligne_commande WHERE id_commande = ? AND id_box = ?");
 $stmt->execute([$id_commande, $id_box]);
 
