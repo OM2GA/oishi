@@ -18,13 +18,19 @@ export class Panier implements OnInit {
   constructor(private data: Data) { }
 
   ngOnInit(): void {
-    this.panier$ = this.data.cart$;
-    this.data.loadCart();
+    this.loadCart();
+  }
+
+  loadCart() {
+    this.panier$ = this.data.getPanier();
   }
 
   supprimer(idBox: number) {
     this.data.deleteFromCart(idBox).subscribe({
-      next: (data) => console.log('Supprimé', data),
+      next: (data) => {
+        console.log('Supprimé', data);
+        this.loadCart();
+      },
       error: (err) => console.error('Erreur suppression', err)
     });
   }
@@ -51,7 +57,7 @@ export class Panier implements OnInit {
   CloseOverlay() {
     this.isOrderValidated = false;
     localStorage.removeItem('id_commande');
-    this.data.loadCart();
+    this.loadCart();
   }
 }
 

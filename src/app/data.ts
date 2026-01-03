@@ -1,18 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { of, BehaviorSubject, tap } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Data {
   API_URL = 'http://localhost/Angular/oishi/api/'; // MAMP: ":8888"; XAMPP:"";
-
-  private cartSubject = new BehaviorSubject<any>(null);
-  cart$ = this.cartSubject.asObservable();
-
-  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(private http: HttpClient) { }
 
   getBoxesAPI() {
     return this.http.get(this.API_URL + "boxes/boxes.php");
@@ -31,18 +25,11 @@ export class Data {
   }
 
   /* Panier*/
-
-  loadCart() {
-    this.getPanier().subscribe((data) => {
-      this.cartSubject.next(data);
-    });
-  }
-
   addToPanier(idBox: number) {
     let idClient = null;
     let idCommande = null;
 
-    if (isPlatformBrowser(this.platformId)) {
+    if (typeof localStorage !== 'undefined') {
       idClient = localStorage.getItem('user_id');
       idCommande = localStorage.getItem('id_commande');
     }
@@ -59,43 +46,38 @@ export class Data {
     return this.http.post<any>(
       this.API_URL + 'panier/add_panier.php',
       data
-    ).pipe(
-      tap(() => this.loadCart())
     );
   }
 
   getPanier() {
-    if (isPlatformBrowser(this.platformId)) {
-      const IDclient = localStorage.getItem('user_id');
-      return this.http.get<any>(this.API_URL + "panier/get_panier.php?id_client=" + IDclient);
+    let IDclient = null;
+    if (typeof localStorage !== 'undefined') {
+      IDclient = localStorage.getItem('user_id');
     }
-    return of(null);
+    return this.http.get(this.API_URL + "panier/get_panier.php?id_client=" + IDclient);
   }
 
   deleteFromCart(idBox: number) {
-    if (isPlatformBrowser(this.platformId)) {
-      const idCommande = localStorage.getItem('id_commande');
-      return this.http.delete<any>(this.API_URL + "panier/delete_panier.php?id_box=" + idBox + "&id_commande=" + idCommande).pipe(
-        tap(() => this.loadCart())
-      );
+    let idCommande = null;
+    if (typeof localStorage !== 'undefined') {
+      idCommande = localStorage.getItem('id_commande');
     }
-    return of(null);
+    return this.http.delete(this.API_URL + "panier/delete_panier.php?id_box=" + idBox + "&id_commande=" + idCommande);
   }
 
   getHistorique() {
-    if (isPlatformBrowser(this.platformId)) {
-      const idClient = localStorage.getItem('user_id');
-      return this.http.get<any>(this.API_URL + "commandes/get_historique.php?id_client=" + idClient);
+    let idClient = null;
+    if (typeof localStorage !== 'undefined') {
+      idClient = localStorage.getItem('user_id');
     }
-    return of(null);
+    return this.http.get(this.API_URL + "commandes/get_historique.php?id_client=" + idClient);
   }
+
   getStatsCommandesParBox() {
     return this.http.get<any[]>(this.API_URL + "stats/commandes_par_box.php");
   }
 
   validerCommande(idCommande: number) {
-    return this.http.post(this.API_URL + 'commandes/valider_commande.php', { id_commande: idCommande }).pipe(
-      tap(() => this.loadCart())
-    );
+    return this.http.post(this.API_URL + 'commandes/valider_commande.php', { id_commande: idCommande });
   }
 }
