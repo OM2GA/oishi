@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $host = "localhost";
 $dbname = "sushi";
 $user = "root";
-$password = "root"; // MAMP: "root"; XAMPP:"";
+$password = ""; // MAMP: "root"; XAMPP:"";
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $password);

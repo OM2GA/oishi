@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Data {
-  API_URL = 'http://localhost:8888/Angular/oishi/api/'; // MAMP: ":8888"; XAMPP:"";
+  API_URL = 'http://localhost/Angular/oishi/api/'; // MAMP: ":8888"; XAMPP:"";
   constructor(private http: HttpClient) { }
 
   getBoxesAPI() {
