@@ -54,11 +54,10 @@ export class Inscription {
     }).subscribe({
       next: (res) => {
         console.log("Inscription réussie", res);
-
-        this.router.navigate(['/liste-box']);
+        this.router.navigate(['/connexion']);
       },
       error: () => {
-        this.message = "Erreur inconnue";
+        this.message = "Erreur à la création du compte";
       }
     });
   }

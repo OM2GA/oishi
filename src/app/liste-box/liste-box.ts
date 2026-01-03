@@ -27,13 +27,23 @@ export class ListeBox implements OnInit {
   }
 
   addPanier(idBox: number): void {
-    this.data.addToPanier(idBox).subscribe((res: any) => {
+    const idClient = localStorage.getItem('user_id');
 
-      if (res.id_commande && typeof window !== 'undefined') {
-        localStorage.setItem('id_commande', res.id_commande);
+    if (!idClient) {
+      alert('Utilisateur non connecté');
+      return;
+    }
+
+    this.data.addToPanier(idBox).subscribe({
+      next: (res: any) => {
+        if (res.id_commande) {
+          localStorage.setItem('id_commande', res.id_commande);
+        }
+        console.log('Ajout de la box réussie');
+      },
+      error: (err) => {
+        console.error('Erreur ajout panier', err);
       }
-
-      console.log('Ajout de la box réussie');
     });
   }
 }

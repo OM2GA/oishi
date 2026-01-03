@@ -16,7 +16,6 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$id_commande]);
 $panier = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
 if (count($panier) === 0) {
   echo json_encode(["error" => "Le panier est vide"]);
   exit;
@@ -29,7 +28,6 @@ foreach ($panier as $item) {
 }
 
 $total = round($total, 2);
-
 
 $sql = "UPDATE commande SET montant_total = ?, statut = 'terminée', date_commande = NOW() WHERE id_commande = ?";
 
