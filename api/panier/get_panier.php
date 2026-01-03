@@ -41,6 +41,7 @@ $panier = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $total = 0;
 foreach ($panier as $item) {
     $total += $item["prix"] * $item["quantite"];
+    $total = round($total, 2);
 }
 
 echo json_encode([

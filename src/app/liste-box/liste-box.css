@@ -1,5 +1,4 @@
-.main-container {
-  background-color: var(--background-color);
+.main {
   min-height: 100vh;
   font-family: 'Lexend', sans-serif;
 }

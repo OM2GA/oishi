@@ -55,4 +55,8 @@ export class Data {
   getStatsCommandesParBox() {
     return this.http.get<any[]>(this.API_URL + "stats/commandes_par_box.php");
   }
+
+  validerCommande(idCommande: number) {
+    return this.http.post(this.API_URL + 'commandes/valider_commande.php',{id_commande:idCommande});
+  }
 }

@@ -11,7 +11,7 @@ if (!isset($_GET["id_client"])) {
 $id_client = (int)$_GET["id_client"];
 
 
-$stmt = $pdo->prepare("SELECT * FROM commande WHERE id_client = ? ORDER BY id_commande DESC");
+$stmt = $pdo->prepare("SELECT * FROM commande WHERE id_client = ? AND statut = 'terminée' ORDER BY id_commande DESC");
 $stmt->execute([$id_client]);
 $commandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

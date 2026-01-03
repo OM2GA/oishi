@@ -20,6 +20,7 @@ export class Panier implements OnInit {
   ngOnInit(): void {
     this.ActualiserPanier();
   }
+  
 
   ActualiserPanier() {
     this.panier$ = this.data.getPanier();
@@ -32,4 +33,32 @@ export class Panier implements OnInit {
       this.ActualiserPanier();
     });
   }
+  isOrderValidated = false;
+  heureLivraison = '';
+
+  payer() {
+    const idCommande = localStorage.getItem('id_commande');
+
+    if (!idCommande) {
+      alert('Aucune commande à valider');
+      return;
+    }
+
+    this.data.validerCommande(Number(idCommande)).subscribe((res: any) => {
+      const date = new Date();
+      date.setHours(date.getHours() + 1);
+      this.heureLivraison = date.toLocaleTimeString([], {hour: '2-digit',minute: '2-digit'});
+      this.isOrderValidated = true;
+      console.log('Commande validée', res);
+
+    });
+  }
+
+  CloseOverlay() {
+    this.isOrderValidated = false;
+    localStorage.removeItem('id_commande');
+    this.ActualiserPanier();
+  }
 }
+
+

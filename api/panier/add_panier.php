@@ -17,20 +17,13 @@ $id_commande = $data["id_commande"] ?? null;
 
 // Création de la commande si elle n'existe pas encore
 if (!$id_commande) {
-    $stmt = $pdo->prepare("
-        INSERT INTO commande (id_client, date_commande, montant_total)
-        VALUES (?, CURDATE(), 0)
-    ");
+    $stmt = $pdo->prepare("INSERT INTO commande (id_client, date_commande, montant_total)VALUES (?, CURDATE(), 0)");
     $stmt->execute([$id_client]);
     $id_commande = $pdo->lastInsertId();
 }
 
 // Vérifier si la box est déjà dans la commande
-$stmt = $pdo->prepare("
-    SELECT id_box
-    FROM ligne_commande
-    WHERE id_commande = ? AND id_box = ?
-");
+$stmt = $pdo->prepare(" SELECT id_bo FROM ligne_commande WHERE id_commande = ? AND id_box = ? ") ");
 $stmt->execute([$id_commande, $id_box]);
 
 if ($stmt->fetch()) {
