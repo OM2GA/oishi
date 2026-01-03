@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class ListeBox implements OnInit {
   boxes$: Observable<any> | undefined;
-  nom_utilisateur: string | null = '';
+  prenom_utilisateur: string | null = '';
 
   constructor(private data: Data) { }
 
@@ -22,7 +22,7 @@ export class ListeBox implements OnInit {
     this.boxes$ = this.data.getBoxesAPI();
     //regler erreur localStorage
     if (typeof window !== 'undefined') {
-      this.nom_utilisateur = localStorage.getItem('user_nom');
+      this.prenom_utilisateur = localStorage.getItem('user_prenom');
     }
   }
 

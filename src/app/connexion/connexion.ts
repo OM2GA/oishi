@@ -33,6 +33,7 @@ export class Connexion {
         }
         console.log('Connexion réussie', res);
         localStorage.setItem('user_nom', res.nom);
+        localStorage.setItem('user_prenom', res.prenom);
         localStorage.setItem('user_id', res.id);
         localStorage.setItem('user_token', res.token);
         this.router.navigate(['/liste-box']);

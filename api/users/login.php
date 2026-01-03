@@ -36,6 +36,7 @@ try {
     echo json_encode([
         "id" => $user["id_client"],
         "nom" => $user["nom"],
+        "prenom" => $user["prenom"],
         "email" => $user["email"],
         "token" => $token
     ]);

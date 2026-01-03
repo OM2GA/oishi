@@ -18,19 +18,14 @@ export class Panier implements OnInit {
   constructor(private data: Data) { }
 
   ngOnInit(): void {
-    this.ActualiserPanier();
+    this.panier$ = this.data.cart$;
+    this.data.loadCart();
   }
-  
 
-  ActualiserPanier() {
-    this.panier$ = this.data.getPanier();
-  }
-  
   supprimer(idBox: number) {
-    this.data.deleteFromCart(idBox).subscribe((data) => {
-      // actualiser le panier apres que un element soit supprimé
-      console.log('Supprimé', data);
-      this.ActualiserPanier();
+    this.data.deleteFromCart(idBox).subscribe({
+      next: (data) => console.log('Supprimé', data),
+      error: (err) => console.error('Erreur suppression', err)
     });
   }
   isOrderValidated = false;
@@ -47,17 +42,16 @@ export class Panier implements OnInit {
     this.data.validerCommande(Number(idCommande)).subscribe((res: any) => {
       const date = new Date();
       date.setHours(date.getHours() + 1);
-      this.heureLivraison = date.toLocaleTimeString([], {hour: '2-digit',minute: '2-digit'});
+      this.heureLivraison = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       this.isOrderValidated = true;
       console.log('Commande validée', res);
-
     });
   }
 
   CloseOverlay() {
     this.isOrderValidated = false;
     localStorage.removeItem('id_commande');
-    this.ActualiserPanier();
+    this.data.loadCart();
   }
 }
 

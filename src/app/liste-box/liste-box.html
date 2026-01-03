@@ -34,59 +34,59 @@
   <div class="container py-4">
     <div class="row mb-4">
       <div class="col-12">
-        @if (nom_utilisateur) {
-          <h2>Bienvenue <span class="username">{{nom_utilisateur}}</span></h2>
+        @if (prenom_utilisateur) {
+        <h2>Bienvenue <span class="username">{{prenom_utilisateur}}</span> !</h2>
         } @else {
-          <h2>Bienvenue</h2>
+        <h2>Bienvenue</h2>
         }
       </div>
     </div>
 
     <div class="row g-4">
       @for (box of (boxes$ | async); track box.id) {
-        <div class="col-md-6 col-lg-4">
-          <div class="card sushi-card h-100">
-            <div class="card-img-wrapper">
-              <img src="images/{{box.image}}.png" class="card-img-top" alt="Image de {{box.nom}}">
+      <div class="col-md-6 col-lg-4">
+        <div class="card sushi-card h-100">
+          <div class="card-img-wrapper">
+            <img src="images/{{box.image}}.png" class="card-img-top" alt="Image de {{box.nom}}">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <div class="align-items-start mb-2">
+              <h3 class="card-title text-white fw-bold mb-0">{{box.nom}}</h3>
             </div>
-            <div class="card-body d-flex flex-column">
-              <div class="align-items-start mb-2">
-                <h3 class="card-title text-white fw-bold mb-0">{{box.nom}}</h3>
+            <p class="card-text description-text">
+              Petite description courte de la box...
+            </p>
+            <div class="mb-3">
+              <h6 class="section-titre">Saveurs :</h6>
+              <div class="d-flex flex-wrap gap-2">
+                @for (saveur of box.saveurs; track saveur) {
+                <span class="badge badge-flavor">
+                  {{saveur}}
+                </span>
+                }
               </div>
-              <p class="card-text description-text">
-                Petite description courte de la box...
-              </p>
-              <div class="mb-3">
-                <h6 class="section-titre">Saveurs :</h6>
-                <div class="d-flex flex-wrap gap-2">
-                  @for (saveur of box.saveurs; track saveur) {
-                    <span class="badge badge-flavor">
-                      {{saveur}}
-                    </span>
-                  }
-                </div>
-              </div>
-              <div class="mt-2 mb-2">
-                <h6 class="section-titre">Composition de la box</h6>
-                <hr class="separator">
-                <ul class="composition-list">
-                  @for (aliment of box.aliments; track aliment.nom) {
-                    <li>
-                      {{aliment.nom}} <span class="qty">x{{aliment.quantite}}</span>
-                    </li>
-                  }
-                </ul>
-              </div>
-              <div class="d-flex justify-content-between align-items-end mt-auto">
-                <div class="price">{{box.prix}}€</div>
-                
-                <button class="btn btn-cart-custom" (click)="addPanier(box.id)">
-                  <i class="ph ph-shopping-cart-simple"></i>
-                </button>
-              </div>
+            </div>
+            <div class="mt-2 mb-2">
+              <h6 class="section-titre">Composition de la box</h6>
+              <hr class="separator">
+              <ul class="composition-list">
+                @for (aliment of box.aliments; track aliment.nom) {
+                <li>
+                  {{aliment.nom}} <span class="qty">x{{aliment.quantite}}</span>
+                </li>
+                }
+              </ul>
+            </div>
+            <div class="d-flex justify-content-between align-items-end mt-auto">
+              <div class="price">{{box.prix}}€</div>
+
+              <button class="btn btn-cart-custom" (click)="addPanier(box.id)">
+                <i class="ph ph-shopping-cart-simple"></i>
+              </button>
             </div>
           </div>
         </div>
+      </div>
       }
     </div>
   </div>
