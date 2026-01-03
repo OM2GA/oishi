@@ -1,6 +1,7 @@
 <?php
 require "../db.php";
 
+header("Access-Control-Allow-Origin: *"); 
 header('Content-Type: application/json');
 
 if (!isset($_GET["id_client"])) {
@@ -11,11 +12,10 @@ if (!isset($_GET["id_client"])) {
 
 $id_client = (int)$_GET["id_client"];
 
-/*Récupérer la commande actuel du client */
 $stmt = $pdo->prepare("
     SELECT id_commande
     FROM commande
-    WHERE id_client = ?
+    WHERE id_client = ? AND statut = 'en cours'
     ORDER BY id_commande DESC
     LIMIT 1
 ");
@@ -32,20 +32,24 @@ if (!$commande) {
 
 $id_commande = $commande["id_commande"];
 
-/*récupérer les boxes du panier */
-$stmt = $pdo->prepare("SELECT box.id_box, box.nom, box.prix, ligne_commande.quantite FROM ligne_commande JOIN box ON box.id_box = ligne_commande.id_box WHERE ligne_commande.id_commande = ? ");
+$stmt = $pdo->prepare("
+    SELECT box.id_box, box.nom, box.prix, box.image, ligne_commande.quantite 
+    FROM ligne_commande 
+    JOIN box ON box.id_box = ligne_commande.id_box 
+    WHERE ligne_commande.id_commande = ? 
+");
 $stmt->execute([$id_commande]);
 $panier = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-/*calcule prix total du panier*/
 $total = 0;
 foreach ($panier as $item) {
     $total += $item["prix"] * $item["quantite"];
-    $total = round($total, 2);
 }
+$total = round($total, 2);
 
 echo json_encode([
     "id_commande" => $id_commande,
     "panier" => $panier,
     "total" => $total
 ]);
+?>

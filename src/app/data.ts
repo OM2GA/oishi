@@ -49,8 +49,8 @@ export class Data {
   }
 
   deleteFromCart(idBox: number) {
-      const idCommande = localStorage.getItem('id_commande');
-      return this.http.delete(this.API_URL + "panier/delete_panier.php?id_box=" + idBox + "id_commande=" + idCommande);
+    const idCommande = localStorage.getItem('id_commande');
+    return this.http.delete(this.API_URL + "panier/delete_panier.php?id_box=" + idBox + "&id_commande=" + idCommande);
   }
 
   getHistorique() {
@@ -62,6 +62,6 @@ export class Data {
   }
 
   validerCommande(idCommande: number) {
-    return this.http.post(this.API_URL + 'commandes/valider_commande.php',{id_commande:idCommande});
+    return this.http.post(this.API_URL + 'commandes/valider_commande.php', { id_commande: idCommande });
   }
 }
