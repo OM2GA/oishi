@@ -13,12 +13,14 @@ import { Data } from '../data';
   styleUrl: './inscription.css',
 })
 export class Inscription {
-  constructor(private data: Data,private router: Router) {}
+  constructor(private data: Data, private router: Router) { }
 
   formData = {
     nom: '',
     prenom: '',
     email: '',
+    telephone: '',
+    adresse: '',
     password: '',
     confirmPassword: ''
   };
@@ -34,6 +36,8 @@ export class Inscription {
     if (
       !this.formData.nom ||
       !this.formData.email ||
+      !this.formData.telephone ||
+      !this.formData.adresse ||
       !this.formData.password ||
       !this.formData.confirmPassword
     ) {
@@ -50,6 +54,8 @@ export class Inscription {
     this.data.register({
       nom: this.formData.nom,
       email: this.formData.email,
+      telephone: this.formData.telephone,
+      adresse: this.formData.adresse,
       password: this.formData.password
     }).subscribe({
       next: (res) => {

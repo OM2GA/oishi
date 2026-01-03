@@ -1,7 +1,7 @@
 <?php
-require "../db.php";
-
 try {
+    require "../db.php";
+
     $data = json_decode(file_get_contents("php://input"), true);
 
     if (
@@ -42,5 +42,5 @@ try {
 
 } catch (Exception $e) {
     http_response_code(500);
-    echo json_encode(["error" => "Connexion failed"]);
+    echo json_encode(["error" => $e->getMessage()]);
 }

@@ -1,4 +1,3 @@
-
 .inscription-container {
     display: flex;
     min-height: 100vh;
@@ -162,6 +161,24 @@
 .btn-submit:hover {
     background-color: #1a1a1a;
     transform: translateY(-2px);
+}
+
+/* Layout utils */
+.inscription-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.inscription-col {
+    flex: 1;
+}
+
+/* Responsiveness for form row */
+@media (max-width: 480px) {
+    .inscription-row {
+        flex-direction: column;
+        gap: 0;
+    }
 }
 
 /* Spacing */

@@ -14,7 +14,7 @@ export class Connexion {
     email: '',
     password: ''
   };
-  constructor(private data: Data,private router: Router) {}
+  constructor(private data: Data, private router: Router) { }
   showPassword = false;
 
   togglePassword(): void {
@@ -22,27 +22,28 @@ export class Connexion {
   }
 
   onSubmit(): void {
-  this.data.login({
-    email: this.formData.email,
-    password: this.formData.password
-  }).subscribe({
-    next: (res: any) => {
-      if (res.error) {
-        alert(res.error);
-        return;
+    this.data.login({
+      email: this.formData.email,
+      password: this.formData.password
+    }).subscribe({
+      next: (res: any) => {
+        if (res.error) {
+          alert(res.error);
+          return;
+        }
+        console.log('Connexion réussie', res);
+        localStorage.setItem('user_nom', res.nom);
+        localStorage.setItem('user_id', res.id);
+        localStorage.setItem('user_token', res.token);
+        this.router.navigate(['/liste-box']);
+      },
+      error: (err) => {
+        if (err.error?.error) {
+          alert(err.error.error);
+        } else {
+          alert('Erreur serveur');
+        }
       }
-      console.log('Connexion réussie', res);
-      localStorage.setItem('user_nom', res.nom);
-      localStorage.setItem('user_id', res.id);
-      this.router.navigate(['/liste-box']);
-    },
-    error: (err) => {
-      if (err.error?.error) {
-        alert(err.error.error);
-      } else {
-        alert('Erreur serveur');
-      }
-    }
-  });
-}
+    });
+  }
 }

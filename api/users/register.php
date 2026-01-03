@@ -7,7 +7,9 @@ try {
     if (
         !isset($data["nom"]) ||
         !isset($data["email"]) ||
-        !isset($data["password"])
+        !isset($data["password"]) ||
+        !isset($data["telephone"]) ||
+        !isset($data["adresse"])
     ) {
         echo json_encode(["error" => "Données manquantes"]);
         exit;
@@ -21,17 +23,22 @@ try {
         exit;
     }
 
+    $prenom = isset($data["prenom"]) ? $data["prenom"] : "";
     $password = password_hash($data["password"], PASSWORD_DEFAULT);
 
-    $stmt = $pdo->prepare("INSERT INTO client (nom, email, password) VALUES (?, ?, ?) ");
+    $stmt = $pdo->prepare("INSERT INTO client (nom, prenom, email, password, telephone, adresse) VALUES (?, ?, ?, ?, ?, ?) ");
     $stmt->execute([
         $data["nom"],
+        $prenom,
         $data["email"],
-        $password
+        $password,
+        $data["telephone"],
+        $data["adresse"]
     ]);
 
     echo json_encode(["success" => true]);
 
 } catch (Exception $e) {
-    echo json_encode(["error" => "Connexion failed"]);
+    http_response_code(500);
+    echo json_encode(["error" => $e->getMessage()]);
 }
