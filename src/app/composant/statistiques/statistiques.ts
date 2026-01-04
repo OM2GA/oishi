@@ -2,7 +2,7 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { Footer } from '../footer/footer';
 import { Header } from '../header/header';
-import { Data } from '../data';
+import { Data } from '../../service/data';
 @Component({
   selector: 'app-statistiques',
   imports: [Footer, Header],

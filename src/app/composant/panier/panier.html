@@ -34,7 +34,7 @@
 
                     <div class="d-flex align-items-center gap-4">
                         <span class="price-tag">{{ item.prix * item.quantite }} €</span>
-                        <button class="btn-trash" (click)="supprimer(item.id_box)">
+                        <button type="button" class="btn-trash" (click)="supprimer(item.id_box)">
                             <i class="ph ph-trash"></i>
                         </button>
                     </div>
@@ -46,7 +46,6 @@
             <div class="col-lg-4">
                 <div class="summary-card shadow-lg">
                     <h3 class="summary-title">Récapitulatif de payement</h3>
-
                     <div class="summary-row">
                         <span>Somme total des produits</span>
                         <span>{{data.total}}€</span>
@@ -62,10 +61,7 @@
                         <span class="total-label">Total</span>
                         <span class="total-value">{{ data.total + 2.50 }}€</span>
                     </div>
-
-                    <button class="btn-checkout" (click)="payer()">
-                        Payer
-                    </button>
+                    <button type="button"class="btn-checkout" (click)="payer()">Payer</button>
                 </div>
             </div>
         </div>

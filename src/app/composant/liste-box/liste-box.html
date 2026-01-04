@@ -36,12 +36,9 @@
           </div>
           <div class="card-body d-flex flex-column">
             <div class="align-items-start mb-2">
-              <h3 class="card-title text-white fw-bold mb-0">{{box.nom}}</h3>
+              <h3 class="card-title text-white fw-bold mb-4">{{box.nom}}</h3>
             </div>
-            <p class="card-text description-text">
-              Petite description courte de la box...
-            </p>
-            <div class="mb-3">
+            <div class="mb-4">
               <h6 class="section-titre">Saveurs :</h6>
               <div class="d-flex flex-wrap gap-2">
                 @for (saveur of box.saveurs; track saveur) {

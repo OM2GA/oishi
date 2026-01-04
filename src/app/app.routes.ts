@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { Inscription } from './inscription/inscription';
-import { Statistiques } from './statistiques/statistiques';
-import { ListeBox } from './liste-box/liste-box';
-import { HistoriqueCommandes } from './historique-commandes/historique-commandes';
-import { Connexion } from './connexion/connexion';
-import { Panier } from './panier/panier';
-import { Rgpd } from './rgpd/rgpd';
+import { Inscription } from './composant/inscription/inscription';
+import { Statistiques } from './composant/statistiques/statistiques';
+import { ListeBox } from './composant/liste-box/liste-box';
+import { HistoriqueCommandes } from './composant/historique-commandes/historique-commandes';
+import { Connexion } from './composant/connexion/connexion';
+import { Panier } from './composant/panier/panier';
+import { Rgpd } from './composant/rgpd/rgpd';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/connexion', pathMatch: 'full' },

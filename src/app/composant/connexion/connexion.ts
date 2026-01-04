@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { Data } from '../data';
+import { Data } from '../../service/data';
 
 @Component({
   selector: 'app-connexion',

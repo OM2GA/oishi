@@ -1,0 +1,21 @@
+h2 {
+    font-weight: 550;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #111827;
+}
+
+.card-header {
+    background-color: #1C1C1C;
+}
+
+.badge{
+    font-size: 1rem;
+}
+
+.card-footer h5{
+    font-size: 1.5rem;
+    color:#1C1C1C;
+    font-weight: 600;
+}
+
