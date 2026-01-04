@@ -16,6 +16,7 @@ export class Header {
       localStorage.removeItem('user_prenom');
       localStorage.removeItem('user_id');
       localStorage.removeItem('id_commande');
+      localStorage.removeItem('user_token');
     }
     console.log('Déconnexion réussie');
     this.router.navigate(['/connexion']);

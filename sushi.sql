@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 18 déc. 2025 à 19:20
+-- Généré le : dim. 04 jan. 2026 à 16:58
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -261,7 +261,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`id_client`, `prenom`, `nom`, `email`, `password`, `telephone`, `adresse`, `token`) VALUES
-(1, '', 'admin', 'admin@admin.com', '$2y$10$ky.Ayb2N.DhxbHuumvgCQOjiKHkyIB8dBZhry9pQNwIOTHS6P6GZi', '', '', '3140d262ad459719004c0c74675b241acd7d5d537e6221b763f352557a72bae8');
+(1, 'Administrateur', 'admin', 'admin@admin.com', '$2y$10$ky.Ayb2N.DhxbHuumvgCQOjiKHkyIB8dBZhry9pQNwIOTHS6P6GZi', '0608090102', '8 rue de meaux', '6964a17747f4d05b4903147caff88ed2e4d900f5021169ac091d751d9533b5d7');
 
 -- --------------------------------------------------------
 
@@ -277,6 +277,17 @@ CREATE TABLE `commande` (
   `statut` enum('en cours','terminée','annulée') DEFAULT 'en cours'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`id_commande`, `id_client`, `montant_total`, `date_commande`, `statut`) VALUES
+(19, 1, 28.40, '2026-01-04', 'terminée'),
+(20, 1, 31.80, '2026-01-04', 'terminée'),
+(21, 1, 31.80, '2026-01-04', 'terminée'),
+(22, 1, 63.60, '2026-01-04', 'terminée'),
+(23, 1, 0.00, '2026-01-04', 'en cours');
+
 -- --------------------------------------------------------
 
 --
@@ -288,6 +299,22 @@ CREATE TABLE `ligne_commande` (
   `id_box` int(11) NOT NULL,
   `quantite` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `ligne_commande`
+--
+
+INSERT INTO `ligne_commande` (`id_commande`, `id_box`, `quantite`) VALUES
+(19, 2, 1),
+(19, 3, 1),
+(20, 5, 1),
+(20, 7, 1),
+(21, 5, 1),
+(21, 7, 1),
+(22, 2, 1),
+(22, 4, 2),
+(22, 6, 1),
+(23, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -350,7 +377,8 @@ ALTER TABLE `box_saveur`
 -- Index pour la table `client`
 --
 ALTER TABLE `client`
-  ADD PRIMARY KEY (`id_client`);
+  ADD PRIMARY KEY (`id_client`),
+  ADD UNIQUE KEY `token` (`token`);
 
 --
 -- Index pour la table `commande`
@@ -392,13 +420,13 @@ ALTER TABLE `box`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT pour la table `saveur`
