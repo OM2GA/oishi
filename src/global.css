@@ -16,4 +16,7 @@
     margin-top: 110px;
     font-family: "Lexend", sans-serif;
 }
-
+html, body, app-root {
+    height: 100%;
+    margin: 0;
+}
