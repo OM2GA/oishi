@@ -53,6 +53,7 @@ export class Inscription {
 
     this.data.register({
       nom: this.formData.nom,
+      prenom: this.formData.prenom,
       email: this.formData.email,
       telephone: this.formData.telephone,
       adresse: this.formData.adresse,
@@ -65,6 +66,7 @@ export class Inscription {
       error: () => {
         this.message = "Erreur à la création du compte";
       }
+      
     });
   }
 }

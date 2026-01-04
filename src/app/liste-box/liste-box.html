@@ -1,38 +1,9 @@
-<!--<app-header></app-header>
-<div class="main">
-  @if (nom_utilisateur) {
-    <h2>
-      Bienvenue {{ nom_utilisateur }}
-    </h2>
-  } @else {
-    <h2>
-      Bienvenue 
-    </h2>
-  }
-  @for (box of (boxes$ | async); track box.id) {
-  <div class="card m-2 p-2">
-    <p>ID : {{box.id}}</p>
-    <p>Name : {{box.nom}}</p>
-    <p>Prix : {{box.prix}}</p>
-    <p>aliment : </p>
-    <ul>
-      @for (aliment of box.aliments; track aliment.nom) {
-      <li>
-        {{ aliment.nom }} — {{ aliment.quantite }}
-      </li>
-      }
-    </ul>
-    <button class="btn btn-cart" (click)="addPanier(box.id)"><span><i class="ph ph-shopping-cart-simple"></i></span></button>
-  </div>
-  }
-</div>
-<app-footer></app-footer>
--->
+
 <app-header></app-header>
 
 <div class="main">
   <div class="container py-4">
-    <div class="row mb-4">
+    <div class="row mb-1">
       <div class="col-12">
         @if (prenom_utilisateur) {
         <h2>Bienvenue <span class="username">{{prenom_utilisateur}}</span> !</h2>
@@ -40,6 +11,20 @@
         <h2>Bienvenue</h2>
         }
       </div>
+    </div>
+    <div class="pres-marque mb-5">
+      <p class="mb-1">
+        <strong>Chez Oishi</strong>, nous réinventons la restauration rapide en alliant
+        <strong>qualité, fraîcheur et respect des traditions japonaises</strong>.
+      </p>
+      <p class="mb-1">
+        Nos box sont préparées avec soin pour vous offrir a nos clients un choix de saveurs variées,
+        adaptées à toutes les envies.
+      </p>
+      <p class="mb-0">
+        Que vous soyez pressé ou gourmet, <strong>Oishi</strong> vous propose une expérience
+        rapide, authentique et savoureuse.
+      </p>
     </div>
 
     <div class="row g-4">
@@ -89,7 +74,33 @@
       </div>
       }
     </div>
-  </div>
-</div>
+    <div class="info-section py-5">
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-4">
+            <div class="info-card h-100">
+              <i class="ph ph-fish"></i>
+              <h3 class="info-title">Fraîcheur & Qualité</h3>
+              <p class="info-text">Sushis préparés des Produits frais soigneusement sélectionnés.</p>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="info-card h-100">
+              <i class="ph ph-fork-knife"></i>
+              <h3 class="info-title">Savoir-faire japonais</h3>
+              <p class="info-text">Recettes authentiques et maîtrise des techniques traditionnelles.</p>
+            </div>
+          </div>
 
+          <div class="col-md-4">
+            <div class="info-card h-100">
+              <i class="ph ph-package"></i>
+              <h3 class="info-title">Livraison express garantie</h3>
+              <p class="info-text">Service de livraison étoilée par Uber Eats en 2025.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <app-footer></app-footer>

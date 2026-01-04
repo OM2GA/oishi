@@ -20,7 +20,11 @@
                         </button>
                     </div>
                 </div>
-
+                @if (message) {
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                }
                 <button type="submit" class="btn btn-submit">SE CONNECTER</button>
 
                 <div class="forgot-password">

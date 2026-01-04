@@ -1,40 +1,49 @@
-
 <header class="main-header">
-    <div class="container">
-        <nav class="navbar navbar-expand-lg main-nav px-0">
+  <nav class="navbar navbar-expand-lg navbar-dark container">
+    
+    <a class="navbar-brand" routerLink="/liste-box">
+      <img src="images/logosanstexte.svg" alt="Logo Oishi">
+    </a>
 
-            <a class="navbar-brand" routerLink="/liste-box">
-                <img src="images/logosanstexte.svg" alt="Logo Oishi">
-            </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-expanded="false"  aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu"
-                aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="ph ph-list" style="font-size:32px; color:white;"></i>
-            </button>
+    <div class="collapse navbar-collapse" id="mainMenu">
+      <ul class="navbar-nav me-auto align-items-lg-center gap-lg-4">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/liste-box">Nos boxes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/statistiques">Statistiques</a>
+        </li>
+      </ul>
 
-            <div class="collapse navbar-collapse" id="mainMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-4">
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center gap-2" routerLink="/panier">
+            <i class="ph ph-shopping-cart"></i><span>Panier</span>
+          </a>
+        </li>
 
-                <ul class="navbar-nav mr-auto">
-                    <li class="menu-item"><a class="nav-link"  routerLink="/liste-box">Nos boxes</a></li>
-                    <li class="menu-item"><a class="nav-link"  routerLink="/statistiques">Statistiques</a></li>
-                </ul>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link d-flex align-items-center gap-2" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="ph ph-user"> </i><span>Mon compte</span> <i class="ph ph-caret-down dropdown-caret"></i>
+          </a>
 
-                <ul class="navbar-nav ms-auto">
-                    <li class="menu-item"><a class="nav-link"  routerLink="/panier">Panier</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle account-link d-flex align-items-center"
-                        href="#" id="accountDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="ph-user me-2"></i>
-                            <span class="account-text mt-1">Mon compte</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
-                            <li><a class="dropdown-item" routerLink="/historique-commandes">Historique de commande</a></li>
-                            <li><a class="dropdown-item"(click)="logout()">Déconnexion</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <a class="dropdown-item" routerLink="/historique-commandes">Historique de commande</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="logout()">Déconnexion</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
     </div>
+  </nav>
 </header>

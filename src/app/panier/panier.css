@@ -26,7 +26,7 @@
 }
 
 h2 {
-    font-weight: 700;
+    font-weight: 550;
     font-size: 2rem;
     margin-bottom: 0.5rem;
     color: #111827;
@@ -120,7 +120,7 @@ h2 {
 }
 
 .btn-trash:hover {
-    color: #EF4444;
+    color: var(--rouge);
 }
 
 /* Summary Box */

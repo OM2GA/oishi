@@ -21,16 +21,17 @@ export class Connexion {
     this.showPassword = !this.showPassword;
   }
 
+  message = '';
+
   onSubmit(): void {
+
+    this.message = '';
+
     this.data.login({
       email: this.formData.email,
       password: this.formData.password
     }).subscribe({
       next: (res: any) => {
-        if (res.error) {
-          alert(res.error);
-          return;
-        }
         console.log('Connexion réussie', res);
         localStorage.setItem('user_nom', res.nom);
         localStorage.setItem('user_prenom', res.prenom);
@@ -38,13 +39,13 @@ export class Connexion {
         localStorage.setItem('user_token', res.token);
         this.router.navigate(['/liste-box']);
       },
-      error: (err) => {
-        if (err.error?.error) {
-          alert(err.error.error);
-        } else {
-          alert('Erreur serveur');
-        }
+    error: (err) => {
+      if (err.status === 401) {
+        this.message = "Erreur identifiant ou mot de passe incorrect";
+      } else {
+        this.message = "Erreur serveur";
       }
+    }
     });
   }
 }

@@ -12,7 +12,7 @@ import { Data } from '../data';
 export class Statistiques implements AfterViewInit {
 
   @ViewChild('chartCommande') chartCommandeRef!: ElementRef<HTMLCanvasElement>;
-    @ViewChild('chartJour') chartJourRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('chartJour') chartJourRef!: ElementRef<HTMLCanvasElement>;
   constructor(private data: Data) {}
 
   ngAfterViewInit():void {

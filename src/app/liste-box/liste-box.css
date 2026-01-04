@@ -3,9 +3,7 @@
   font-family: 'Lexend', sans-serif;
 }
 
-.username::first-letter {
-  text-transform: uppercase;
-}
+
 
 .sushi-card {
   background-color: var(--card);
@@ -42,8 +40,7 @@
   font-weight: 600;
 }
 
-/**
-/* Badges Saveurs */
+
 .badge-flavor {
   background-color: #384B20;
   color: white;
@@ -53,7 +50,7 @@
   font-weight: 500;
 }
 
-/* Ligne de séparation */
+
 .separator {
   border-color: #444;
   margin-top: 5px;
@@ -61,7 +58,6 @@
   opacity: 1;
 }
 
-/* Liste de composition */
 .composition-list {
   list-style: none;
   padding-left: 0;
@@ -88,8 +84,6 @@
   font-weight: 700;
 }
 
-
-
 .btn-cart-custom {
   background-color: white;
   color: #111111;
@@ -113,4 +107,50 @@ button i {
 
 .btn-cart-custom:hover i {
   color: white;
+}
+
+h2 {
+    font-weight: 550;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #111111;
+}
+
+
+.info-section {
+  color: white;
+}
+
+.info-card {
+  background-color: var(--vert); 
+  border-radius: 40px;      
+  padding: 40px 30px;
+  text-align: center;
+}
+
+
+.info-card i {
+  font-size: 3.5rem;
+  color: white;
+  display: block;
+}
+
+
+.info-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.info-text {
+  font-size: 1.25rem;
+  color: #fff;
+  font-weight: 400;
+  opacity: 80%;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.pres-marque p {
+  font-size: 1.25rem;
 }

@@ -1,26 +1,41 @@
 <app-header></app-header>
+
 <div class="main">
-  <div class="container mt-5">
+  <div class="container-fluid mt-5">
+
+    <!-- Titre -->
     <div class="row mb-4">
       <div class="col-12">
         <h2>Tableau de bord : Statistiques</h2>
       </div>
     </div>
 
-    <div class="card p-4 shadow-sm">
-      <h3 class="text-center mb-4 text-white">
-        Nombre de commandes par box
-      </h3>
-      <canvas #chartCommande></canvas>
-    </div>
+    <!-- GRAPHIQUES -->
+    <div class="row g-4">
 
-    <div class="card p-4 shadow-sm">
-      <h3 class="text-center mb-4 text-white">
-        Commandes par jour
-      </h3>
-      <canvas #chartJour></canvas>
+      <!-- Graphique 1 -->
+      <div class="col-md-6">
+        <div class="card p-3 shadow-sm h-100">
+          <h5 class="text-center mb-3 text-white">
+            Nombre de commandes par box
+          </h5>
+          <canvas #chartCommande class="chart-canvas"></canvas>
+        </div>
+      </div>
+
+      <!-- Graphique 2 -->
+      <div class="col-md-6">
+        <div class="card p-3 shadow-sm h-100">
+          <h5 class="text-center mb-3 text-white">
+            Commandes par jour
+          </h5>
+          <canvas #chartJour class="chart-canvas"></canvas>
+        </div>
+      </div>
+
     </div>
 
   </div>
 </div>
+
 <app-footer></app-footer>
