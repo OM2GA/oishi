@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 04 jan. 2026 à 16:58
+-- Généré le : dim. 04 jan. 2026 à 17:39
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -73,7 +73,6 @@ INSERT INTO `aliment` (`id_aliment`, `nom`) VALUES
 CREATE TABLE `box` (
   `id_box` int(11) NOT NULL,
   `nom` varchar(150) NOT NULL,
-  `description` text NOT NULL,
   `prix` decimal(6,2) NOT NULL,
   `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -82,20 +81,20 @@ CREATE TABLE `box` (
 -- Déchargement des données de la table `box`
 --
 
-INSERT INTO `box` (`id_box`, `nom`, `description`, `prix`, `image`) VALUES
-(1, 'Tasty Blend', 'Tasty Blend', 12.50, 'tasty-blend'),
-(2, 'Amateur Mix', 'Amateur Mix', 15.90, 'amateur-mix'),
-(3, 'Saumon Original', 'Saumon Original', 12.50, 'saumon-original'),
-(4, 'Salmon Lovers', 'Salmon Lovers', 15.90, 'salmon-lovers'),
-(5, 'Salmon Classic', 'Salmon Classic', 15.90, 'salmon-classic'),
-(6, 'Master Mix', 'Master Mix', 15.90, 'master-mix'),
-(7, 'Sunrise', 'Sunrise', 15.90, 'sunrise'),
-(8, 'Sando Box Chicken Katsu', 'Sando Box Chicken Katsu', 15.90, 'sando-box-chicken-katsu'),
-(9, 'Sando Box Salmon Aburi', 'Sando Box Salmon Aburi', 15.90, 'sando-box-salmon-aburi'),
-(10, 'Super Salmon', 'Super Salmon', 19.90, 'super-salmon'),
-(11, 'California Dream', 'California Dream', 19.90, 'california-dream'),
-(12, 'Gourmet Mix', 'Gourmet Mix', 24.50, 'gourmet-mix'),
-(13, 'Fresh Mix', 'Fresh Mix', 24.50, 'fresh-mix');
+INSERT INTO `box` (`id_box`, `nom`, `prix`, `image`) VALUES
+(1, 'Tasty Blend', 12.50, 'tasty-blend'),
+(2, 'Amateur Mix', 15.90, 'amateur-mix'),
+(3, 'Saumon Original', 12.50, 'saumon-original'),
+(4, 'Salmon Lovers', 15.90, 'salmon-lovers'),
+(5, 'Salmon Classic', 15.90, 'salmon-classic'),
+(6, 'Master Mix', 15.90, 'master-mix'),
+(7, 'Sunrise', 15.90, 'sunrise'),
+(8, 'Sando Box Chicken Katsu', 15.90, 'sando-box-chicken-katsu'),
+(9, 'Sando Box Salmon Aburi', 15.90, 'sando-box-salmon-aburi'),
+(10, 'Super Salmon', 19.90, 'super-salmon'),
+(11, 'California Dream', 19.90, 'california-dream'),
+(12, 'Gourmet Mix', 24.50, 'gourmet-mix'),
+(13, 'Fresh Mix', 24.50, 'fresh-mix');
 
 -- --------------------------------------------------------
 
@@ -261,7 +260,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`id_client`, `prenom`, `nom`, `email`, `password`, `telephone`, `adresse`, `token`) VALUES
-(1, 'Administrateur', 'admin', 'admin@admin.com', '$2y$10$ky.Ayb2N.DhxbHuumvgCQOjiKHkyIB8dBZhry9pQNwIOTHS6P6GZi', '0608090102', '8 rue de meaux', '6964a17747f4d05b4903147caff88ed2e4d900f5021169ac091d751d9533b5d7');
+(1, 'Administrateur', 'admin', 'admin@admin.com', '$2y$10$ky.Ayb2N.DhxbHuumvgCQOjiKHkyIB8dBZhry9pQNwIOTHS6P6GZi', '0608090102', '8 rue de meaux', 'fc6e34fc3c8102292005fcbb7c9e92df875e3efdfcb404f3dcd34810e2154458');
 
 -- --------------------------------------------------------
 
