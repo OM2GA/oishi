@@ -39,19 +39,12 @@ if (!$id_commande) {
     $id_commande = $pdo->lastInsertId();
 }
 
-$stmt = $pdo->prepare("
-    SELECT id_box
-    FROM ligne_commande
-    WHERE id_commande = ? AND id_box = ?
+$stmt = $pdo->prepare("SELECT id_box FROM ligne_commande WHERE id_commande = ? AND id_box = ?
 ");
 $stmt->execute([$id_commande, $id_box]);
 
 if ($stmt->fetch()) {
-    $stmt = $pdo->prepare("
-        UPDATE ligne_commande
-        SET quantite = quantite + 1
-        WHERE id_commande = ? AND id_box = ?
-    ");
+    $stmt = $pdo->prepare("UPDATE ligne_commande SET quantite = quantite + 1 WHERE id_commande = ? AND id_box = ?");
     $stmt->execute([$id_commande, $id_box]);
 } else {
     $stmt = $pdo->prepare("

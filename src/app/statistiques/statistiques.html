@@ -1,5 +1,26 @@
 <app-header></app-header>
-<div class="main container p-4">
-  <h2 class="mb-4">Statistiques</h2>
+<div class="main">
+  <div class="container mt-5">
+    <div class="row mb-4">
+      <div class="col-12">
+        <h2>Tableau de bord : Statistiques</h2>
+      </div>
+    </div>
+
+    <div class="card p-4 shadow-sm">
+      <h3 class="text-center mb-4 text-white">
+        Nombre de commandes par box
+      </h3>
+      <canvas #chartCommande></canvas>
+    </div>
+
+    <div class="card p-4 shadow-sm">
+      <h3 class="text-center mb-4 text-white">
+        Commandes par jour
+      </h3>
+      <canvas #chartJour></canvas>
+    </div>
+
+  </div>
 </div>
 <app-footer></app-footer>

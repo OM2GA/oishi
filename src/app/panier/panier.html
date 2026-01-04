@@ -13,19 +13,17 @@
             <!-- Left Column: Cart Items -->
             <div class="col-lg-8">
                 @for (item of data.panier; track item.id_box) {
-                <div class="cart-card">
+                <div class="cart-card shadow-lg">
                     <div class="d-flex align-items-center gap-4">
                         <!-- Image placeholder -->
                         <div class="img-placeholder d-flex align-items-center justify-content-center text-muted">
                             <img *ngIf="item.image" src="images/{{item.image}}.png"
-                                class="w-100 h-100 rounded-3 object-fit-cover" alt="{{item.nom}}"
-                                onerror="this.style.display='none'">
+                                class="w-100 h-100 rounded-3 object-fit-cover" alt="{{item.nom}}" />
                             <i *ngIf="!item.image" class="ph ph-image"></i>
                         </div>
 
                         <div class="item-info">
                             <h4>{{ item.nom }}</h4>
-                            <span class="details">Details</span>
                         </div>
                     </div>
 
@@ -46,7 +44,7 @@
 
             <!-- Right Column: Summary -->
             <div class="col-lg-4">
-                <div class="summary-card">
+                <div class="summary-card shadow-lg">
                     <h3 class="summary-title">Récapitulatif de payement</h3>
 
                     <div class="summary-row">

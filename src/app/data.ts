@@ -74,9 +74,12 @@ export class Data {
   }
 
   getStatsCommandesParBox() {
-    return this.http.get<any[]>(this.API_URL + "stats/commandes_par_box.php");
+    return this.http.get<any[]>(this.API_URL + "stats/commande_par_boxe.php");
   }
-
+  getStatsCommandesParJour() {
+    return this.http.get<any[]>(this.API_URL + 'stats/commandes_par_jour.php');
+  }
+  
   validerCommande(idCommande: number) {
     return this.http.post(this.API_URL + 'commandes/valider_commande.php', { id_commande: idCommande });
   }
