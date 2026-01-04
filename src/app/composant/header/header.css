@@ -76,6 +76,10 @@
   display: none !important;
 }
 
+.nav-item .dropdown{
+  cursor: pointer !important;
+}
+
 /* MOBILE */
 @media (max-width: 991px) {
   .navbar-nav {

@@ -123,7 +123,7 @@ h2 {
 
 .info-card {
   background-color: var(--vert); 
-  border-radius: 40px;      
+  border-radius: 20px;      
   padding: 40px 30px;
   text-align: center;
 }

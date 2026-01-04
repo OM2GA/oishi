@@ -5,7 +5,7 @@
   @if (historique$ | async; as data) {
     @if (data.commandes.length > 0) {
       @for (com of data.commandes; track com.id_commande) {
-        <div class="card mb-3 shadow-lg border-0">
+        <div class="card mb-5 shadow border-0">
           <div class="card-header text-white d-flex justify-content-between align-items-center">
             <span><strong>Commande du {{ com.date_commande }}</strong></span>
           </div>
@@ -23,7 +23,7 @@
             </ul>
           </div>
 
-          <div class="card-footer d-flex justify-content-between align-items-center">
+          <div class="card-footer bg-white d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Total :</h5>
             <h5><span>{{ com.total }}€</span></h5>
           </div>
