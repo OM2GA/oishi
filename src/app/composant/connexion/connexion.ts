@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { Data } from '../../service/data';
@@ -14,7 +14,9 @@ export class Connexion {
     email: '',
     password: ''
   };
-  constructor(private data: Data, private router: Router) { }
+
+  constructor(private data: Data, private router: Router, private cd: ChangeDetectorRef) { }
+
   showPassword = false;
 
   togglePassword(): void {
@@ -37,7 +39,7 @@ export class Connexion {
         localStorage.setItem('user_prenom', res.prenom);
         localStorage.setItem('user_id', res.id);
         localStorage.setItem('user_token', res.token);
-        // recuperer l'id de la commande en cours si il elle exite
+
         if (res.id_commande) {
           localStorage.setItem('id_commande', res.id_commande);
           console.log('Commande en cours récupérée :', res.id_commande);
@@ -46,13 +48,14 @@ export class Connexion {
         }
         this.router.navigate(['/liste-box']);
       },
-    error: (err) => {
-      if (err.status === 401) {
-        this.message = "Erreur identifiant ou mot de passe incorrect";
-      } else {
-        this.message = "Erreur serveur";
+      error: (err) => {
+        if (err.status === 401) {
+          this.message = "Erreur identifiant ou mot de passe incorrect";
+        } else {
+          this.message = "Erreur serveur";
+        }
+        this.cd.detectChanges();
       }
-    }
     });
   }
 }

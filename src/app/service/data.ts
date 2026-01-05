@@ -79,19 +79,19 @@ export class Data {
   getStatsCommandesParJour() {
     return this.http.get<any[]>(this.API_URL + 'stats/commandes_par_jour.php');
   }
-  
+
   validerCommande(idCommande: number) {
     return this.http.post(this.API_URL + 'commandes/valider_commande.php', { id_commande: idCommande });
   }
 
   quantitePlus(idBox: number) {
     const idCommande = localStorage.getItem('id_commande');
-    return this.http.post(this.API_URL + 'panier/quantite_plus.php',{id_commande: idCommande,id_box: idBox});
+    return this.http.post(this.API_URL + 'panier/quantite_plus.php', { id_commande: idCommande, id_box: idBox });
   }
 
   quantiteMoins(idBox: number) {
     const idCommande = localStorage.getItem('id_commande');
-    return this.http.post(this.API_URL + 'panier/quantite_moins.php',{id_commande: idCommande,id_box: idBox});
+    return this.http.post(this.API_URL + 'panier/quantite_moins.php', { id_commande: idCommande, id_box: idBox });
   }
 
 }
