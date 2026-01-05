@@ -3,12 +3,7 @@ require_once("../db.php");
 
 header("Content-Type: application/json; charset=UTF-8");
 
-$sql = "
-SELECT date_commande AS jour, COUNT(*) AS total
-FROM commande
-WHERE statut = 'terminée'
-ORDER BY jour
-";
+$sql = "SELECT DATE(date_commande) AS jour, COUNT(*) AS total FROM commande WHERE statut = 'terminée'  GROUP BY DATE(date_commande) ORDER BY jour ";
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
