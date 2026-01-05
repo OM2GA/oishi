@@ -1,10 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  font-family: 'Lexend', sans-serif;
+}
+
 .card {
   background-color: var(--card);
   border-radius: 16px;
 }
 
 .chart-canvas {
-  max-height: 500px;   /* 🔥 réduit la taille */
+  max-height: 500px;
 }
 
 h5 {
@@ -12,8 +23,8 @@ h5 {
 }
 
 h2 {
-    font-weight: 550;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: #111111;
+  font-weight: 550;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #111111;
 }
