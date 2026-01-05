@@ -33,12 +33,18 @@ try {
     $stmt = $pdo->prepare("UPDATE client SET token = ? WHERE id_client = ?");
     $stmt->execute([$token, $user["id_client"]]);
 
+    // rechercher si une commande de l'utilisateur est en cours pour recuperer son id_commande
+    $stmtCommande = $pdo->prepare("SELECT id_commande FROM commande WHERE id_client = ? AND statut = 'en cours' LIMIT 1");
+    $stmtCommande->execute([$user["id_client"]]);
+    $commandeEncours = $stmtCommande->fetch(PDO::FETCH_ASSOC);
+
     echo json_encode([
         "id" => $user["id_client"],
         "nom" => $user["nom"],
         "prenom" => $user["prenom"],
         "email" => $user["email"],
-        "token" => $token
+        "token" => $token,
+        "id_commande" => $commandeEncours ? $commandeEncours['id_commande'] : null
     ]);
 
 } catch (Exception $e) {

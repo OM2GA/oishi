@@ -37,6 +37,13 @@ export class Connexion {
         localStorage.setItem('user_prenom', res.prenom);
         localStorage.setItem('user_id', res.id);
         localStorage.setItem('user_token', res.token);
+        // recuperer l'id de la commande en cours si il elle exite
+        if (res.id_commande) {
+          localStorage.setItem('id_commande', res.id_commande);
+          console.log('Commande en cours récupérée :', res.id_commande);
+        } else {
+          localStorage.removeItem('id_commande');
+        }
         this.router.navigate(['/liste-box']);
       },
     error: (err) => {
