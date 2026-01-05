@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 04 jan. 2026 à 17:39
+-- Généré le : lun. 05 jan. 2026 à 20:51
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -260,7 +260,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`id_client`, `prenom`, `nom`, `email`, `password`, `telephone`, `adresse`, `token`) VALUES
-(1, 'Administrateur', 'admin', 'admin@admin.com', '$2y$10$ky.Ayb2N.DhxbHuumvgCQOjiKHkyIB8dBZhry9pQNwIOTHS6P6GZi', '0608090102', '8 rue de meaux', 'fc6e34fc3c8102292005fcbb7c9e92df875e3efdfcb404f3dcd34810e2154458');
+(1, 'Administrateur', 'admin', 'admin@admin.com', '$2y$10$ky.Ayb2N.DhxbHuumvgCQOjiKHkyIB8dBZhry9pQNwIOTHS6P6GZi', '0608090102', '8 rue de meaux', '065aea5b1d13b95c003a36bb77edf47df8bb3d2723b8b4ede854b2112d0b13c6');
 
 -- --------------------------------------------------------
 
@@ -285,7 +285,7 @@ INSERT INTO `commande` (`id_commande`, `id_client`, `montant_total`, `date_comma
 (20, 1, 31.80, '2026-01-04', 'terminée'),
 (21, 1, 31.80, '2026-01-04', 'terminée'),
 (22, 1, 63.60, '2026-01-04', 'terminée'),
-(23, 1, 0.00, '2026-01-04', 'en cours');
+(25, 1, 47.70, '2026-01-05', 'terminée');
 
 -- --------------------------------------------------------
 
@@ -313,7 +313,8 @@ INSERT INTO `ligne_commande` (`id_commande`, `id_box`, `quantite`) VALUES
 (22, 2, 1),
 (22, 4, 2),
 (22, 6, 1),
-(23, 2, 1);
+(25, 2, 1),
+(25, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -425,7 +426,7 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT pour la table `saveur`
