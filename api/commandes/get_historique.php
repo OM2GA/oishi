@@ -33,7 +33,7 @@ foreach ($commandes as $cmd) {
 
         $liste_boxes[] = [
             "nom"      => $details_box['nom'],
-            "prix"     => $details_box['prix'],
+            "prix"     => $details_box['prix']*$ligne['quantite'],
             "quantite" => $ligne['quantite']
         ];
     }
