@@ -110,10 +110,10 @@ button i {
 }
 
 h2 {
-    font-weight: 550;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: #111111;
+  font-weight: 550;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #111111;
 }
 
 
@@ -122,8 +122,8 @@ h2 {
 }
 
 .info-card {
-  background-color: var(--vert); 
-  border-radius: 20px;      
+  background-color: var(--vert);
+  border-radius: 20px;
   padding: 40px 30px;
   text-align: center;
 }
@@ -153,4 +153,34 @@ h2 {
 
 .pres-marque p {
   font-size: 1.25rem;
+}
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: 90%;
+  max-width: 500px;
+  animation: slideDown 0.5s ease-out;
+}
+
+.toast-message {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+@keyframes slideDown {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+
+  to {
+    top: 20px;
+    opacity: 1;
+  }
 }

@@ -1,3 +1,10 @@
+@if (message) {
+<div class="toast-container">
+  <div class="alert alert-danger toast-message" role="alert">
+    <i class="ph ph-warning-circle me-2"></i> {{ message }}
+  </div>
+</div>
+}
 
 <app-header></app-header>
 
@@ -12,6 +19,7 @@
         }
       </div>
     </div>
+
     <div class="pres-marque mb-5">
       <p class="mb-1">
         <strong>Chez Oishi</strong>, nous réinventons la restauration rapide en alliant
@@ -72,32 +80,32 @@
       }
     </div>
     <div class="info-section py-5">
-        <div class="row g-4 justify-content-center">
-          <div class="col-md-4">
-            <div class="info-card h-100">
-              <i class="ph ph-fish"></i>
-              <h3 class="info-title">Fraîcheur & Qualité</h3>
-              <p class="info-text">Sushis préparés avec des produits frais soigneusement sélectionnés.</p>
-            </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="info-card h-100">
+            <i class="ph ph-fish"></i>
+            <h3 class="info-title">Fraîcheur & Qualité</h3>
+            <p class="info-text">Sushis préparés avec des produits frais soigneusement sélectionnés.</p>
           </div>
-    
-          <div class="col-md-4">
-            <div class="info-card h-100">
-              <i class="ph ph-fork-knife"></i>
-              <h3 class="info-title">Savoir-faire japonais</h3>
-              <p class="info-text">Recettes authentiques et maîtrise des techniques traditionnelles.</p>
-            </div>
-          </div>
+        </div>
 
-          <div class="col-md-4">
-            <div class="info-card h-100">
-              <i class="ph ph-package"></i>
-              <h3 class="info-title">Livraison express garantie</h3>
-              <p class="info-text">Service de livraison étoilée par Uber Eats en 2025.</p>
-            </div>
+        <div class="col-md-4">
+          <div class="info-card h-100">
+            <i class="ph ph-fork-knife"></i>
+            <h3 class="info-title">Savoir-faire japonais</h3>
+            <p class="info-text">Recettes authentiques et maîtrise des techniques traditionnelles.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="info-card h-100">
+            <i class="ph ph-package"></i>
+            <h3 class="info-title">Livraison express garantie</h3>
+            <p class="info-text">Service de livraison étoilée par Uber Eats en 2025.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 <app-footer></app-footer>
