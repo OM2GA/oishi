@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Data } from '../../service/data';
 import { Footer } from '../footer/footer';
@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 export class Panier implements OnInit {
   panier$: Observable<any> | undefined;
 
-  constructor(private data: Data) { }
+  constructor(private data: Data, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.loadCart();
@@ -30,10 +30,12 @@ export class Panier implements OnInit {
       next: (data) => {
         console.log('Supprimé', data);
         this.loadCart();
+        this.cd.detectChanges();
       },
       error: (err) => console.error('Erreur suppression', err)
     });
   }
+
   isOrderValidated = false;
   heureLivraison = '';
 
@@ -51,6 +53,7 @@ export class Panier implements OnInit {
       this.heureLivraison = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       this.isOrderValidated = true;
       console.log('Commande validée', res);
+      this.cd.detectChanges();
     });
   }
 
@@ -60,5 +63,3 @@ export class Panier implements OnInit {
     this.loadCart();
   }
 }
-
-
