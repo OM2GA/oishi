@@ -1,6 +1,6 @@
 .card {
-  background-color: #1C1C1C;
-  border-radius: 15px;
+  background-color: var(--card);
+  border-radius: 16px;
 }
 
 .chart-canvas {
